@@ -1,0 +1,44 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<div th:fragment="menu">
+	<div class="layui-side layui-side-menu">
+		<div class="layui-side-scroll">
+			<div class="layui-logo">
+				<span>管理系统</span>
+			</div>
+			<ul class="layui-nav layui-nav-tree" lay-shrink="all" lay-filter="menu">
+				<li class="layui-nav-item" th:id="|parent-menu${array.id}|" th:each="array : ${session.menu}">
+					<a href="javascript:;" th:text="${array.title}"></a>
+					<dl class="layui-nav-child" th:each="array2 : ${array.children}">
+						<dd>
+							<a th:id="${array2.url}" th:href="|#/${array2.url}|" th:text="${array2.title}" th:attr="jump-url=|@{/}${array2.url}|,parent-menu=|parent-menu${array.id}|,menu-id=${array2.id}">控制台</a>
+						</dd>
+					</dl>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript">
+		layui.use([ 'jquery', 'element' ], function() {
+			var $ = layui.jquery;
+			var element = layui.element;
+
+			element.init();
+			element.on('nav(menu)', function(elem) {
+				url = elem[0].getAttribute('jump-url');
+				//console.log(elem[0].getAttribute('menu-id'));
+				if (null != url) {
+					$('#body-content').load(url);
+				}
+			});
+			var url = location.hash.split('#/')[1];
+			if (null != url && undefined != url) {
+				var menu = $('#' + url);
+				var parentMenu = menu[0].getAttribute('parent-menu');
+				$('#' + parentMenu).addClass('layui-nav-itemed');
+				menu.click();
+			}
+		});
+	</script>
+</div>
+</html>

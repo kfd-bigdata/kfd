@@ -1,0 +1,84 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+
+<div class="layui-fluid" th:fragment="charts">
+	<script type="text/javascript" th:src="@{/static/echarts/echarts.min.js}"></script>
+	<div class="layui-row layui-col-space15">
+		<div class="layui-col-md12">
+			<div class="layui-card">
+				<div class="layui-card-header">pv总数量时间分布图</div>
+				<div class="layui-card-body">
+					<div id="pvCount" style="width: 100%; height: 300px;"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		layui.config({
+			base : 'static/modules/'
+		}).use([ 'jquery', 'form','tool'], function() {
+			var $ = layui.jquery;
+			
+			var timeArray = [];
+		    var pvArray = [];
+			var pvCountChart = echarts.init(document
+					.getElementById('pvCount'));
+			var pvCountOption = {
+				tooltip : {
+					trigger : 'axis'
+				},
+				/* legend : {
+					data : [ '2019/10/12'],
+					x : 'right'
+				}, */
+				xAxis : [
+			        {
+			            type : 'category',
+			            data : timeArray
+			        }
+			    ],
+				grid : {
+					left : '3%',
+					right : '4%',
+					bottom : '3%',
+					containLabel : true
+				},
+				yAxis : {
+					type : 'value',
+					name : 'pv总数量',
+				},
+				series : [ {
+					type : 'line',
+					name : 'pv总数量',
+					data:pvArray,
+					color : '#417DF5'
+				}]
+			};
+			
+			var startTime = "2019-10-10";
+		    var endTime = "2019-10-12";
+			$.ajax({
+				url : "allpv/getPvAllList",
+				type : "POST",
+				data : {"startTime" : startTime,"endTime" : endTime},
+				async: false,
+				traditional : true,
+				success : function(data) {
+					console.log(data);
+					$.each(data, function (index, item) {
+						timeArray.push(item.time);
+						pvArray.push(item.cnt);
+					});
+					pvCountChart.setOption(pvCountOption);
+				},
+				error : function(e) {
+					console.log(e);
+				}
+			});
+			window.onresize = function() {
+				pvCountChart.resize();
+			}
+		});
+	</script>
+</div>

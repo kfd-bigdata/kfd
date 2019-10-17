@@ -1,0 +1,79 @@
+<meta charset="UTF-8">
+<script type="text/javascript" th:src="@{/js/department/department.js}"></script>
+
+<div class="layui-fluid">
+	<div class="layui-row layui-col-space15">
+		<div class="layui-col-md12">
+			<div class="layui-card">
+				<div class="layui-card-header">部门列表</div>
+				<div class="layui-card-body">
+					<div class="site-content">
+						<table id="data-table" lay-filter="data-table"></table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/html" id="tools-window">
+	<div class="layui-from" style="padding: 20px 30px 0 0;">
+		<form class="layui-form" id="add-from" lay-filter="add-from" action="">
+			<div class="layui-form-item">
+    			<label class="layui-form-label">选择框</label>
+    			<div class="layui-input-block">
+      			<select name="type" lay-verify="required">
+					<option value="1">部门</option>
+        			<option value="0">岗位</option>
+      			</select>
+    			</div>
+  			</div>
+
+			<div class="layui-form-item">
+				<label class="layui-form-label">名称</label>
+				<div class="layui-input-block">
+					<input type="text" id="departmentName" name="departmentName" autocomplete="off" class="layui-input" lay-verify="required" />
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">描述</label>
+				<div class="layui-input-block">
+					<input type="text" id="departmentRemark" name="departmentRemark" autocomplete="off" class="layui-input" />
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">排序</label>
+				<div class="layui-input-block">
+					<input type="text" id="sort" name="sort" autocomplete="off" class="layui-input" lay-verify="required" />
+				</div>
+			</div>
+			
+					
+			<div class="layui-hide">
+				<input type="text" id="departmentId" name="departmentId" autocomplete="off" class="layui-input"/>
+				<input type="text" id="departmentParentId" name="departmentParentId" autocomplete="off" class="layui-input"/>
+				<input type="text" id="buttonType" name="buttonType" autocomplete="off" class="layui-input"/>
+				<button class="layui-btn" id="button-submit" lay-submit="" lay-filter="button-submit"></button>
+			</div>
+		</form>
+	</div>
+</script>
+
+
+<script type="text/html" id="tools-dialog">
+	<div class="layui-from" style="padding: 20px 30px 0 0;">
+		<form class="layui-form" id="role-from" lay-filter="role-from" action="">
+			<div class="layui-form-item" id="chexkboxdiv">
+				<label class="layui-form-label">角色复选框</label>
+    			<div class="layui-input-block" id="chexkboxdiv22">
+					
+				</div>
+			</div>
+
+			<div class="layui-hide">
+				<input type="text" id="departId" name="departId" autocomplete="off" class="layui-input"/>
+				<button class="layui-btn" id="button-role-submit" lay-submit="" lay-filter="button-role-submit"></button>
+			</div>
+		</form>
+	</div>
+</script>

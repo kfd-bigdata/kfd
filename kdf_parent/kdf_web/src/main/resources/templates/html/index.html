@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script th:src="@{/static/layui/layui.js}"></script>
+		<link rel="stylesheet" th:href="@{/static/layui/css/layui.css}">
+		<script th:src="@{/static/layui/layui.js}"></script>
+		<link rel="icon" type="image/x-icon" th:href="@{/static/login/images/logofo.png}">
+		<link rel="stylesheet" type="text/css" th:href="@{/static/login/css/login.css}"    />
+	</head>
+	<body>
+		<div id="header">
+		    <div class="h-wrap md-center">
+		        <img th:src="@{/static/login/images/zhlogo.png}" alt="招行小程序LOGO"/>
+		        <p>欢迎登录 管理端</p>
+		    </div>
+		</div>
+		<div id="content">
+		    <div class="c-wrap md-center">
+		        <div id="user-wrap">
+		            <div class="child-wrap">
+		                <div class="user-title">
+		                    <p>账号登录</p>
+		                </div>
+		                <form method="post" id="form" th:action="@{login}">
+			                <div class="user-number">
+			                    <img th:src="@{/static/login/images/tlh_dl_yh.png}" alt="账号图标"/>
+			                    <input type="text" id="username" name="username" value="mengpp" required autofocus placeholder="邮箱/用户/已验证手机"/>
+			                </div>
+			                <div class="user-password">
+			                    <img th:src="@{/static/login/images/tlh_dl_mm.png}" alt="密码图标"/>
+			                    <input  id="password" name="password" required type="password" placeholder="密码" value="mengpp@123"/>
+			                </div>
+			                <div class="user-verification">
+			                    <img class="tubiao" th:src="@{/static/login/images/tlh_dl_mm.png}" alt="验证码图标"/>
+			                    <input type="text" id="code" name="code" value="" placeholder="验证码" required/>
+			                    <a href="javascript:;" style="float:left"><img title="点击换一张图片" class="yanzhengma" src="defaultKaptcha" width="90" height="39" onclick="this.src=this.src+'?'+Math.random()"/></a>
+			                </div>
+			                <div id="errortip" class="alert alert-block alert-danger fade in" style="display:none;">
+			                    <font id="tip">验证码错误！</font>
+			                </div>
+			                <div class="user-login">
+			                    <p onclick="logincc();" style="background-color: #D03042">登&nbsp;&nbsp;&nbsp;&nbsp;录</p>
+			                   <!--  <button class="layui-btn" lay-submit lay-filter="login">立即登录</button> -->
+			                </div>
+		                </form>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		<script th:inline="javascript">
+		layui.config({
+			base : 'static/modules/'
+		}).use([ 'jquery', 'form','tool'], function() {
+				var $ = layui.jquery;
+				var form = layui.form;
+				var tool = layui.tool;
+				var username = $("#username").val();
+				window.logincc = function() {
+					var fromData = {
+						username : $("#username").val(),
+						password : $("#password").val(),
+						code : $("#code").val()
+					};
+						
+					
+					tool.sendAjax('loginAjax', 'POST', fromData,sendSuccess,sendFail);
+				};	
+				sendSuccess = function (){
+					window.location = [[@{home}]]
+				}
+				sendFail = function(msg){
+					$("#tip").html(msg.responseJSON.message);
+					$("#code").val("");
+					$("#errortip").show();
+				}			
+				
+				
+			});
+			
+			document.onkeydown = function(event) {
+				var e = event || window.event || arguments.callee.caller.arguments[0];
+				if (e && e.keyCode == 13) { // enter 键
+					//要做的事情
+					logincc();
+				}
+			}; 
+			
+			
+			
+		</script>
+	</body>
+</html>
+	
+	

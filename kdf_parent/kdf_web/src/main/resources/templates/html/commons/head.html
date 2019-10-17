@@ -1,0 +1,182 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<div th:fragment="head">
+	<div class="layui-header">
+		<ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
+			<li class="layui-nav-item" lay-unselect>
+				<a href="javascript:;">
+					<cite th:text="${session.user.nickname}"></cite>
+				</a>
+				<dl class="layui-nav-child">
+					<dd style="text-align: center;">
+						<a href="javascript:;" onclick="commons_user_info_update()">基本资料</a>
+					</dd>
+					<dd style="text-align: center;">
+						<a href="javascript:;" onclick="commons_user_password_update()">修改密码</a>
+					</dd>
+					<hr>
+					<dd style="text-align: center;" layadmin-event="logout">
+						<a th:href="@{/outLogin}">退出</a>
+					</dd>
+				</dl></li>
+			<li class="layui-nav-item layui-hide-xs" lay-unselect>
+				<a href="javascript:;" layadmin-event="about">
+					<i class="layui-icon layui-icon-more-vertical"></i>
+				</a>
+			</li>
+		</ul>
+	</div>
+	
+	
+	<script type="text/html" id="update-userInfo">
+		<div class="layui-from" style="padding: 20px 30px 0 0;">
+			<form class="layui-form" id="commons-user-info-from" lay-filter="commons-user-info-from" action="">
+				<div class="layui-form-item">
+					<label class="layui-form-label">用户名</label>
+					<div class="layui-input-block">
+						<input type="text" name="username" autocomplete="off" class="layui-input layui-disabled" lay-verify="required" th:value="${session.user.userName}" disabled/>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">用户昵称</label>
+					<div class="layui-input-block">
+						<input type="text" name="nickname" autocomplete="off" class="layui-input" lay-verify="required" th:value="${session.user.nickname}"/>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">手机号</label>
+					<div class="layui-input-block">
+						<input type="text" name="phone" autocomplete="off" class="layui-input" lay-verify="required" th:value="${session.user.phone}"/>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">联系邮箱</label>
+					<div class="layui-input-block">
+						<input type="text" name="email" autocomplete="off" class="layui-input" lay-verify="required" th:value="${session.user.email}"/>
+					</div>
+				</div>
+				<div class="layui-hide">
+					<button class="layui-btn" id="commons-user-button-submit" lay-submit="" lay-filter="commons-user-button-submit">提交</button>
+					<input type="text" name="userId" autocomplete="off" class="layui-input" th:value="${session.user.userId}"/>
+				</div>
+			</form>
+		</div>
+	</script>
+	
+	
+	 
+
+	<script type="text/html" id="update-userPass">
+		<div class="layui-from" style="padding: 20px 30px 0 0;">
+			<form class="layui-form" id="commons-user-password-from" lay-filter="commons-user-password-from" action="">
+				<div class="layui-form-item">
+					<label class="layui-form-label">旧密码</label>
+					<div class="layui-input-block">
+						<input type="password" name="oldPassword" autocomplete="off" class="layui-input" lay-verify="required"/>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">新密码</label>
+					<div class="layui-input-block">
+						<input type="password" name="password" autocomplete="off" class="layui-input" lay-verify="required"/>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">确认密码</label>
+					<div class="layui-input-block">
+						<input type="password" name="confirmPassword" autocomplete="off" class="layui-input" lay-verify="required"/>
+					</div>
+				</div>
+				<div class="layui-hide">
+					<button class="layui-btn" id="commons-user-password-button-submit" lay-submit="" lay-filter="commons-user-password-button-submit">提交</button>
+					<input type="text" name="userId" autocomplete="off" class="layui-input" th:value="${session.user.userId}"/>
+					<input type="text" name="oldConfirmPassword" autocomplete="off" class="layui-input" th:value="${session.user.password}"/>
+				</div>
+			</form>
+		</div>
+	</script>
+
+	
+	
+
+	<script type="text/javascript">
+		var mod = [ 'jquery', 'form', 'tool' ];
+		layui.config({
+			base : 'static/modules/'
+		}).use(mod, function() {
+			var $ = layui.jquery;
+			var form = layui.form;
+			var tool = layui.tool;
+
+			var index = null;
+
+			window.commons_user_info_update = function() {
+				index = layer.open({
+					type : 1,
+					area : '500px',
+					title : '修改信息',
+					content : $('#update-userInfo').html(),
+					btn : [ '确定', '取消' ],
+					btn1 : function(index, layero) {
+						$('#commons-user-button-submit').click();
+					}
+				});
+			}
+
+			form.on('submit(commons-user-button-submit)', function(data) {
+				tool.sendAjax('user/update', 'POST', data.field, function(d) {
+					console.log(data.field)
+					if (d) {
+						layer.msg("修改成功");
+					} else {
+						layer.msg("修改失败");
+					}
+					layer.close(index);
+				});
+				return false;
+			});
+
+			window.commons_user_password_update = function() {
+				index = layer.open({
+					type : 1,
+					area : '500px',
+					title : '修改密码',
+					content : $('#update-userPass').html(),
+					btn : [ '确定', '取消' ],
+					btn1 : function(index, layero) {
+						$('#commons-user-password-button-submit').click();
+					}
+				});
+			}
+			
+			form.on('submit(commons-user-password-button-submit)', function(data) {
+				data = data.field;
+				var fromData = {
+					userId : data.userId,
+					oldPassword : data.oldPassword,
+					newPassword : data.password
+				};
+				if (data.confirmPassword != data.password) {
+					layer.msg("修改失败，两次密码不相同");
+					return false;
+				}
+				$.ajax({
+					url : "user/updatePassword",
+					type : 'POST',
+					data : fromData,
+					traditional : true,
+					success : function(data) {
+						layer.msg(data.message)
+						layer.close(index);
+					},
+					error : function(e) {
+						layer.msg(e.responseJSON.message)
+					}
+				}); 
+				return false;
+			});
+		});
+	</script>
+
+</div>
+</html>

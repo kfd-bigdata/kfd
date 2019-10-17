@@ -1,0 +1,87 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<div class="layui-fluid" th:fragment="card">
+	<div class="layui-row layui-col-space15">
+		<div class="layui-col-md3">
+			<div class="layui-card">
+				<div class="layui-card-header">
+					PV
+					<span class="layui-badge layui-bg-blue layuiadmin-badge">总</span>
+				</div>
+				<div class="layui-card-body layuiadmin-card-list">
+					<p class="layuiadmin-big-font">
+						<span id='pvCount'>0</span>
+					</p>
+					<p>
+						平均
+						<span class="layuiadmin-span-color">
+							<span id='pvAvg'>0</span>
+							<i class="layui-icon layui-icon-username"></i>
+						</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-md3">
+			<div class="layui-card">
+				<div class="layui-card-header">
+					PV
+					<span class="layui-badge layui-bg-blue layuiadmin-badge">今日</span>
+				</div>
+				<div class="layui-card-body layuiadmin-card-list">
+					<p class="layuiadmin-big-font">
+						<span id='pvToday'>0</span>
+					</p>
+					<p>
+						昨日
+						<span class="layuiadmin-span-color">
+							<span id='pvYesterday'>0</span>
+							<i class="layui-icon layui-icon-cellphone"></i>
+						</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-md3">
+			<div class="layui-card">
+				<div class="layui-card-header">
+					UV
+					<span class="layui-badge layui-bg-blue layuiadmin-badge">总</span>
+				</div>
+				<div class="layui-card-body layuiadmin-card-list">
+					<p class="layuiadmin-big-font">
+						<span id='uvCount'>0</span>
+					</p>
+					<p>
+						平均
+						<span class="layuiadmin-span-color">
+							<span id='uvAvg'>0</span>
+							<i class="layui-icon layui-icon-user"></i>
+						</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-md3">
+			<div class="layui-card">
+				<div class="layui-card-header">
+					UV
+					<span class="layui-badge layui-bg-blue layuiadmin-badge">今日</span>
+				</div>
+				<div class="layui-card-body layuiadmin-card-list">
+					<p class="layuiadmin-big-font">
+						<span id='uvToday'>0</span>
+					</p>
+					<p>
+						昨日
+						<span class="layuiadmin-span-color">
+							<span id='uvYesterday'>0</span>
+							<i class="layui-icon layui-icon-star"></i>
+						</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" th:src="@{/js/home/card.js}"></script>
+</div>

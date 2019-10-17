@@ -1,0 +1,21 @@
+<!--<!DOCTYPE html>-->
+<html xmlns:th="http://www.thymeleaf.org">
+<!--<head th:replace="html/commons/commons :: commonHead"></head>-->
+<meta charset="UTF-8">
+<script type="text/javascript" th:src="@{/static/echarts/echarts.min.js}"></script>
+<script type="text/javascript" th:src="@{/static/echarts/echarts-gl.js}"></script>
+<script type="text/javascript" th:src="@{/js/pvurl/pvurltime.js}"></script>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header">url列表时间分布图</div>
+                <div class="layui-card-body">
+                    <div class="site-content">
+                        <div id="peopleCount" style="width: 100%; height: 300px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

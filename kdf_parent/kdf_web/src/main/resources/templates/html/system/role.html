@@ -1,0 +1,85 @@
+<meta charset="UTF-8">
+<script type="text/javascript" th:src="@{/js/system/role.js}"></script>
+
+<div class="layui-fluid">
+	<div class="layui-row layui-col-space15">
+		<div class="layui-col-md12">
+			<div class="layui-card">
+				<div class="layui-card-header">角色管理</div>
+				<div class="layui-card-body">
+					<div class="site-content">
+						<table id="data-table" lay-filter="data-table"></table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/html" id="tools-head">
+	<div class="layui-btn-container">
+		<button class="layui-btn layui-btn-sm" lay-event="add">添加</button>
+		<button class="layui-btn layui-btn-sm" lay-event="del">删除</button>
+	</div>
+</script>
+
+<script type="text/html" id="tools-line">
+	<a class="layui-btn layui-btn-xs layui-bg-green" lay-event="associated-menu">
+		关联菜单
+	</a>
+</script>
+
+<script type="text/html" id="tools-window">
+	<div class="layui-from" id="add-window" style="padding: 20px 30px 0 0;">
+		<form class="layui-form" id="add-from" lay-filter="add-from" action="">
+			<div class="layui-form-item">
+				<label class="layui-form-label">角色名称</label>
+				<div class="layui-input-block">
+					<input type="text" name="roleName" autocomplete="off" class="layui-input" lay-verify="required" />
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">描述</label>
+				<div class="layui-input-block">
+					<input type="text" name="roleDescribe" autocomplete="off" class="layui-input" lay-verify="required" />
+				</div>
+			</div>
+			<div class="layui-hide">
+				<button class="layui-btn" id="button-submit" lay-submit="" lay-filter="button-submit">提交</button>
+				<input type="text" name="buttonType" autocomplete="off" class="layui-input"/>
+			</div>
+		</form>
+	</div>
+</script>
+
+<script type="text/html" id="tools-tree-window">
+	<div class="layui-from" id="tree-window" style="padding: 20px 30px 0 0;">
+		<form class="layui-form" action="">
+			<div class="layui-form-item">
+				<label class="layui-form-label">菜单列表</label>
+				<div class="layui-input-block">
+					<div id="menu-tree"></div>
+				</div>
+			</div>
+		</form>
+	</div>
+</script>
+
+<script type="text/html" id="tools-tree-button-window">
+	<div class="layui-from" id="tree-window" style="padding: 20px 30px 0 0;">
+		<form class="layui-form" action="">
+			<div class="layui-form-item">
+				<label class="layui-form-label">菜单列表</label>
+				<div class="layui-input-block">
+					<div id="menu-tree"></div>
+				</div>
+			</div>
+  			<div class="layui-form-item" style="position:absolute;bottom:0">
+    			<label class="layui-form-label">按钮权限</label>
+    			    <div class="layui-input-block" id="buttons">
+						<label class="layui-form-label" style="width:200px;">单击菜单项即可设置按钮权限</label>
+    				</div>
+ 			 </div>
+		</form>
+	</div>
+</script>

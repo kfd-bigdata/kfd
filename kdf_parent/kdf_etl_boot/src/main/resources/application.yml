@@ -1,0 +1,47 @@
+server:
+   port: 9999
+   servlet:
+      context-path: /etl
+   tomcat:
+      uri-encoding: UTF-8
+hbase:
+   zookeeper:
+      quorum: 192.168.31.37:2181
+      property:
+         clientPort: 2181
+zookeeper:
+   znode:
+      parent: /hbase
+spring:
+   jpa:
+      hibernate:
+         ddl-auto: none
+      show-sql: true
+      database: mysql
+   datasource:
+      url: jdbc:mysql://cdb-8ekiyygy.bj.tencentcdb.com:10058/kfd?useUnicode=true&characterEncoding=utf-8&serverTimezone=Hongkong
+      username: hivedb
+      password: mengpp@123
+      driver-class-name: com.mysql.cj.jdbc.Driver
+kfd:
+#配置多个数据源(这里测试hive数据源)
+   datasource:
+      hive: #hive数据源
+         url: jdbc:hive2://192.168.31.37:10000/my_hive
+         type: com.alibaba.druid.pool.DruidDataSource
+         driver-class-name: org.apache.hive.jdbc.HiveDriver
+      common-config: #连接池统一配置，应用到所有的数据源 
+         initialSize: 1
+         minIdle: 1
+         maxIdle: 5
+         maxActive: 50
+         maxWait: 10000
+         timeBetweenEvictionRunsMillis: 10000
+         minEvictableIdleTimeMillis: 300000
+         validationQuery: select 'x'
+         testWhileIdle: true
+         testOnBorrow: false
+         testOnReturn: false
+         poolPreparedStatements: true
+         maxOpenPreparedStatements: 20
+         filters: stat

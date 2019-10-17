@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.kdf.cloud</groupId>
+	<artifactId>kdf_parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>kdf_flow</module>
+		<module>kdf_etl_boot</module>
+		<module>kdf_web</module>
+		<module>kdf_common</module>
+	</modules>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.4.RELEASE</version>
+		<relativePath />
+	</parent>
+
+	<properties>
+		<mysql.connector>runtime</mysql.connector>
+		<alibaba.druid>1.0.31</alibaba.druid>
+		<alibaba.fastjson>1.2.57</alibaba.fastjson>
+		<mallat.uasparser>0.6.2</mallat.uasparser>
+		<apache.hadoop>2.7.1</apache.hadoop>
+
+		<java.version>1.8</java.version>
+		<docker.registryServerId>230-5000</docker.registryServerId>
+		<docker.registryHost>http://192.168.31.37:12375</docker.registryHost>
+		<docker.registryUrl>http://${docker.registryHost}/</docker.registryUrl>
+		<imageVersion>1.8</imageVersion>
+		<docker.image.prefix>mytest</docker.image.prefix>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>8.0.17</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>${alibaba.druid}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${alibaba.fastjson}</version>
+			</dependency>
+			<dependency>
+				<groupId>cz.mallat.uasparser</groupId>
+				<artifactId>uasparser</artifactId>
+				<version>${mallat.uasparser}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.hadoop</groupId>
+				<artifactId>hadoop-hdfs</artifactId>
+				<version>${apache.hadoop}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.hadoop</groupId>
+				<artifactId>hadoop-common</artifactId>
+				<version>${apache.hadoop}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.hadoop</groupId>
+				<artifactId>hadoop-client</artifactId>
+				<version>${apache.hadoop}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.penggle</groupId>
+				<artifactId>kaptcha</artifactId>
+				<version>${penggle.kaptcha}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.aliyun</groupId>
+				<artifactId>aliyun-java-sdk-core</artifactId>
+				<version>4.1.0</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>

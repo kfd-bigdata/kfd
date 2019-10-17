@@ -1,0 +1,35 @@
+server:
+   port: 8089
+   servlet:
+      context-path: /admin
+   tomcat:
+      uri-encoding: UTF-8
+spring:
+   http:
+      encoding:
+         charset: UTF-8
+         enabled: true
+         force: true
+   jpa:
+      hibernate:
+         ddl-auto: none
+      show-sql: true
+      database: mysql
+   datasource:
+      url: jdbc:mysql://cdb-8ekiyygy.bj.tencentcdb.com:10058/kfd?useUnicode=true&characterEncoding=utf-8&serverTimezone=Hongkong
+      username: hivedb
+      password: mengpp@123
+      driver-class-name: com.mysql.cj.jdbc.Driver
+   thymeleaf:
+      prefix: classpath:/templates/
+      check-template-location: true
+      suffix: .html
+      encoding: UTF-8
+      mode: HTML5
+      cache: false
+      servlet:
+         content-type: text/html
+   servlet:
+      multipart:
+         max-file-size: -1
+         max-request-size: -1

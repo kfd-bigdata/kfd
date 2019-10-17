@@ -1,0 +1,190 @@
+*{
+	font-family: "΢���ź�";
+	padding: 0;
+	margin: 0;
+}
+input{
+	border: none;
+	outline: none;
+	text-indent: 10px;
+}
+a{
+	text-decoration: none;
+}
+body{
+	background-color: #ffffff;
+}
+.md-center{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+#header{
+	height: 123px;
+	background-color: #ffffff;
+}
+.h-wrap{
+	width: 1200px;
+	height: 123px;
+	background-color: #ffffff;
+	position: relative;
+}
+.h-wrap img{
+	height: 104px;
+	position: absolute;
+	left: 0;
+	top: 11px;
+}
+.h-wrap p{
+	color: #696969;
+	font-size: 30px;
+	line-height: 123px;
+	position: absolute;
+	left: 168px;
+}
+
+#content{
+	background-image: url('../images/indexpic.png');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	height: 500px;
+}
+.c-wrap{
+	width: 1200px;
+	height: 500px;
+	position: relative;
+}
+#user-wrap{
+	width: 400px;
+	height: 460px;
+	background-color: #ffffff;
+	position: absolute;
+	right: 0;
+	top: 20px;
+}
+.child-wrap{
+	margin: 0 10px 0 10px;
+	height: 460px;
+}
+.user-title{
+	font-size: 20px;
+	line-height: 60px;
+	border-bottom: 1px solid #EEEEEE;
+}
+.user-title p{
+	text-indent: 10px;
+}
+/*
+ * �˺�
+ */
+.user-number{
+	height: 40px;
+	margin: 0 10px 0 10px;
+	margin-top: 36px;
+	position: relative;
+}
+.user-number img{
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.user-number input{
+	position: absolute;
+	left: 55px;
+	width: 305px;
+	height: 39px;
+	border-bottom: 1px solid #eeeeee;
+}
+/*
+ * ����
+ */
+.user-password{
+	height: 40px;
+	margin: 0 10px 0 10px;
+	margin-top: 36px;
+	position: relative;
+}
+.user-password img{
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.user-password input{
+	position: absolute;
+	left: 55px;
+	width: 305px;
+	height: 39px;
+	border-bottom: 1px solid #eeeeee;
+}
+/*
+ * ��֤��
+ */
+.user-verification{
+	height: 40px;
+	margin: 0 10px 0 10px;
+	margin-top: 36px;
+	position: relative;
+}
+.tubiao{
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.user-verification input{
+	position: absolute;
+	left: 55px;
+	width: 166px;
+	height: 39px;
+	border-bottom: 1px solid #eeeeee;
+}
+.yanzhengma{
+	width: 136px;
+	height: 36px;
+	position: absolute;
+	right: 0;
+	top: 2px;
+}
+/*
+ * ��¼��ť 
+ */
+.user-login{
+	height: 50px;
+	margin: 0 10px 0 10px;
+	margin-top: 36px;
+	background-color: #19b66e;
+	position: relative;
+	border-radius: 50px;
+	cursor: pointer;
+}
+.user-login p{
+	text-align: center;
+	line-height: 50px;
+	color: #ffffff;
+	font-size: 23px;
+}
+
+.alert-danger {
+    color: #b94a48;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.fade.in {
+    opacity: 1;
+}
+.alert-success, .alert-danger, .alert-info, .alert-warning {
+    border: none;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}

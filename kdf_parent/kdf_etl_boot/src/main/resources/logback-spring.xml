@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false" scan="false">
+    <springProperty scop="context" name="spring.application.name" source="spring.application.name" defaultValue="logs"/>
+    <property name="log.path" value="logs/${spring.application.name}"/>
+    <!-- Console log output -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %highlight(%-5level) %cyan(%logger{50}) - %highlight(%msg) %n</pattern>
+        </encoder>
+    </appender>
+    
+    <appender name="FileAppender" class="ch.qos.logback.core.FileAppender">
+		<file>/data/testFile.log</file> 
+        <append>true</append>
+        <prudent>true</prudent>   
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %highlight(%-5level) %cyan(%logger{50}) - %highlight(%msg) %n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Level: FATAL 0  ERROR 3  WARN 4  INFO 6  DEBUG 7 -->
+    <root level="debug">
+     	<appender-ref ref="FileAppender" />
+        <appender-ref ref="console" />
+    </root>
+    <logger level="debug" name="com.ibatis" />
+     
+</configuration>
