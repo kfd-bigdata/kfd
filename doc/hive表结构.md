@@ -153,7 +153,7 @@ TBLPROPERTIES ("hbase.table.name" = "pv_log");
 | appid           | varchar(20) | 项目appid           |
 | start_count     | datatime    | 启动次数            |
 | create_time     | datetime    | 创建时间            |
-| request_time    | bigint      | 访问时间-yyyy-mm-dd HH |
+| request_time    | bigint      | 访问时间-yyyy-mm-dd HH  |
 | country         | bigint      | 国家          |
 | province        | varchar(20) | 省份          |
 | city            | varchar(20) | 城市          |
