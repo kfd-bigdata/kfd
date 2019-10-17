@@ -102,13 +102,15 @@ JSON处理：阿里巴巴
 
 veiw：vue/react 前后分离
 
-部署容器：kubernates+docker
+部署容器：kubernates+*docker* 
 
 
 
 kdf交流群
 ![Image text](https://raw.githubusercontent.com/kfd-bigdata/kfd/master/wxqrcode.png)
 
-## 捐赠支持
 
-![捐赠支持](https://mengpp-test.oss-cn-hangzhou.aliyuncs.com/20190613164429.jpg){width="200px" height:"300px"}
+
+\## 捐赠支持
+
+![捐赠支持](https://mengpp-test.oss-cn-hangzhou.aliyuncs.com/20190613164429.jpg){:width="200px" height:"300px"}
