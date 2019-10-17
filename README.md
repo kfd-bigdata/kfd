@@ -106,7 +106,5 @@ veiw：vue/react 前后分离
 
 
 
-
-
 kdf交流群
-
+![Image text](https://raw.githubusercontent.com/kfd-bigdata/kfd/master/wxqrcode.png)
