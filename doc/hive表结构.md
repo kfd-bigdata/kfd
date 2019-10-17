@@ -143,4 +143,17 @@ TBLPROPERTIES ("hbase.table.name" = "pv_log");
 | request_time    | datetime    | yyyy-mm-dd HH:00:00 |
 | mobile_uv_count | bigint      | 移动端uv数量        |
 | pc_uv_count     | bigint      | pc端uv数量          |
+#### 用户地域分布UV统计表
 
+表名：kfd_uv_user_area_distribution
+
+| 列名称          | 类型        | 注释                |
+| --------------- | ----------- | ------------------- |
+| id              | bigint      | 主键                |
+| appid           | varchar(20) | 项目appid           |
+| start_count     | datatime    | 启动次数            |
+| create_time     | datetime    | 创建时间-年月日时分秒 |
+| request_time    | bigint      | 访问时间-年月日时        |
+| country         | bigint      | 国家          |
+| province        | varchar(20) | 省份          |
+| city            | varchar(20) | 城市          |
