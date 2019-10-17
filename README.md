@@ -16,17 +16,97 @@ https://github.com/kfd-bigdata/kfd
 
 ![Image text](https://dev.tencent.com/u/java_1715656022/p/kfd/git/raw/master/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%95%B0%E6%8D%AE%E6%B5%81%E5%9B%BE.png)
 
-# 技术调研分工
- kafka  张礼韬 李文龙
+# 开发所需环境
 
- flume  孟皮皮 裴广庭 李双双
+## 1 jdk8 环境
 
- hadoop（hdfs mr） 李海南
+## 2 hadoop环境
 
- habse 基于hoodup之上
+## 3 hbase环境
 
- hive 基于hoodup之上
+## 4 hive环境
 
- sqoop 依赖hive
+## 5 nginx环境
 
-小郭 技术指导。
+## 6 flum环境
+
+## 7 kafka环境
+
+# 技术选型
+
+## v1版
+
+大数据：hadoop hdfs/mr、hbase、hive、flum、kafka、zookeeper
+
+基础框架：SpringBoot
+
+持久框架：Hibernate+JPA
+
+缓存：Apache Redis Cluster
+
+数据库：Mysql主从
+
+程序构建：Apache Maven
+
+数据库连接池：阿里巴巴 Druid
+
+日志处理：Apache Log4j/SLF4J
+
+JSON处理：阿里巴巴
+
+负载均衡、静态服务器：Apache Nginx
+
+应用容器：Apache Tomcat
+
+view:thymleaf模版
+
+部署容器：docker
+
+## 规划版v2
+
+大数据：hadoop hdfs/mr、hbase、hive、flum、kafka、zookeeper
+
+基础框架：SpringBoot
+
+微服务网关：SpringCloud Gatway
+
+微服务注册中心：SpringCloud Consul
+
+微服务负载均衡：SpringCloud Feign
+
+微服务链路追踪：Spring Cloud Sleuth、Spring Cloud ZipKin
+
+微服务熔断降级：SpringCloud Hystrix
+
+持久框架：Hibernate+JPA
+
+搜索引擎：ElasticSearch
+
+缓存：Apache Redis Cluster
+
+数据库：Mysql主从
+
+分库分表中间件：Apache ShardingSphere
+
+程序构建：Apache Maven
+
+数据库连接池：阿里巴巴 Druid
+
+日志处理：Apache Log4j/SLF4J
+
+JSON处理：阿里巴巴
+
+负载均衡、静态服务器：LVS + Apache Nginx
+
+应用容器：Apache Tomcat
+
+veiw：vue/react 前后分离
+
+部署容器：kubernates+*docker* 
+
+
+
+
+
+kdf交流群
+
