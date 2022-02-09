@@ -27,7 +27,7 @@
 		<alibaba.druid>1.0.31</alibaba.druid>
 		<alibaba.fastjson>1.2.57</alibaba.fastjson>
 		<mallat.uasparser>0.6.2</mallat.uasparser>
-		<apache.hadoop>2.7.1</apache.hadoop>
+		<apache.hadoop>2.10.1</apache.hadoop>
 
 		<java.version>1.8</java.version>
 		<docker.registryServerId>230-5000</docker.registryServerId>
