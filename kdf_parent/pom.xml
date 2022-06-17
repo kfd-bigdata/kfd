@@ -25,7 +25,7 @@
 	<properties>
 		<mysql.connector>runtime</mysql.connector>
 		<alibaba.druid>1.0.31</alibaba.druid>
-		<alibaba.fastjson>1.2.57</alibaba.fastjson>
+		<alibaba.fastjson>1.2.83</alibaba.fastjson>
 		<mallat.uasparser>0.6.2</mallat.uasparser>
 		<apache.hadoop>2.7.1</apache.hadoop>
 
