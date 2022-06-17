@@ -13,7 +13,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<alibaba.fastjson>1.2.57</alibaba.fastjson>
+		<alibaba.fastjson>1.2.83</alibaba.fastjson>
 		<alibaba.druid>1.0.31</alibaba.druid>
 		<penggle.kaptcha>2.3.2</penggle.kaptcha>
 		<aliyun.sdk>4.1.0</aliyun.sdk>
